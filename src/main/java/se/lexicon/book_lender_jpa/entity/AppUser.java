@@ -35,12 +35,17 @@ public class AppUser {
     @Setter private Details userDetails;
 
 
+
     public AppUser(String userName, String password, Details details) {
         this.userName = userName;
         this.password = password;
         this.userDetails = details;
         this.regDate = LocalDate.now();
 
+    }
 
+    public AppUser(String userName, String password) {
+        this.userName = userName;
+        this.password = password;
     }
 }
