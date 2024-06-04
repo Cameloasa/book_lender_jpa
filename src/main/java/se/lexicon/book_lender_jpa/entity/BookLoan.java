@@ -41,4 +41,11 @@ public class BookLoan {
     @JoinColumn(name = "book_id")
     private Book books;
 
+
+    public BookLoan(LocalDate loanDate, LocalDate dueDate, AppUser borrowers, Book books) {
+        this.loanDate = LocalDate.now();
+        this.dueDate = dueDate;
+        this.borrowers = borrowers;
+        this.books = books;
+    }
 }

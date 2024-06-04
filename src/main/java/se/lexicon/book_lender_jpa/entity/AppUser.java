@@ -56,4 +56,6 @@ public class AppUser {
         this.userName = userName;
         this.password = password;
     }
+
+
 }
