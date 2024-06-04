@@ -5,6 +5,9 @@ import lombok.*;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -33,6 +36,11 @@ public class AppUser {
     @OneToOne
     @JoinColumn(name = "detail_id")
     @Setter private Details userDetails;
+
+
+    @OneToMany(mappedBy = "borrower")
+    private Set<BookLoan>  bookLoans = new HashSet<>();
+
 
 
 
