@@ -31,12 +31,20 @@ public class Book {
     @Column(nullable = false)
     private Integer maxLoanDays;
 
-   @OneToMany(mappedBy = "book")
+   @OneToMany(mappedBy = "book", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private Set<BookLoan> bookLoans = new HashSet<>();
 
     public Book(String isbn, String title, Integer maxLoanDays) {
         this.isbn = isbn;
         this.title = title;
         this.maxLoanDays = maxLoanDays;
+    }
+
+    public void addBookLoan(BookLoan bookLoan) {
+        bookLoans.add(bookLoan);
+    }
+
+    public void removeBookLoan(BookLoan bookLoan) {
+        bookLoans.remove(bookLoan);
     }
 }

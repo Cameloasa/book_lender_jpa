@@ -13,10 +13,10 @@ import java.util.List;
 public interface BookLoanRepository extends JpaRepository<BookLoan, Integer> {
 
     // Find book loans by borrower's ID
-    List<BookLoan> findByBorrowerId(Integer borrowerId);
+    List<BookLoan> findByBorrower_Id(Integer borrowerId);
 
     // Find book loans by book ID
-    List<BookLoan> findByBookId(Integer bookId);
+    List<BookLoan> findByBook_Id(Integer bookId);
 
     // Find book loans that are not yet returned
     List<BookLoan> findByReturnedFalse();

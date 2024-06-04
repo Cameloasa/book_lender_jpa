@@ -34,18 +34,24 @@ public class BookLoan {
     boolean returned;
 
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JoinColumn(name = "borrower_id")
-    private AppUser borrowers;
+    @JoinColumn(name = "borrower_id", nullable = false)
+    @Setter
+    private AppUser borrower;
 
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JoinColumn(name = "book_id")
-    private Book books;
+    @JoinColumn(name = "book_id" , nullable = false)
+    @Setter
+    private Book book;
 
 
-    public BookLoan(LocalDate loanDate, LocalDate dueDate, AppUser borrowers, Book books) {
+    public BookLoan(LocalDate dueDate, AppUser borrower, Book book) {
         this.loanDate = LocalDate.now();
         this.dueDate = dueDate;
-        this.borrowers = borrowers;
-        this.books = books;
+        this.borrower = borrower;
+        this.book = book;
     }
+
+
+
+
 }
