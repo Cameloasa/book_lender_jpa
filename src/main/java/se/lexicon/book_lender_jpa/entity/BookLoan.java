@@ -30,17 +30,18 @@ public class BookLoan {
 
     @Column(nullable = false)
     private LocalDate dueDate;
+
     @Column
     boolean returned;
 
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name = "borrower_id", nullable = false)
-    @Setter
+
     private AppUser borrower;
 
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name = "book_id" , nullable = false)
-    @Setter
+
     private Book book;
 
 
