@@ -38,7 +38,7 @@ public class AppUser {
     @Setter private Details userDetails;
 
 
-    @OneToMany(mappedBy = "borrower")
+    @OneToMany(mappedBy = "borrower",cascade = CascadeType.ALL)
     private Set<BookLoan>  bookLoans = new HashSet<>();
 
 

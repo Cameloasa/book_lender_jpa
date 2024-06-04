@@ -33,13 +33,14 @@ public class MyCommandLineRunner implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
 
+
         Book book = new Book("1234Test","Test Book",30);
 
         Details details = new Details("user@test", "user", LocalDate.of(2000,1,1));
 
         AppUser appUser = new AppUser("username","1234",details);
 
-        BookLoan bookLoan = new BookLoan(LocalDate.now(),appUser,book);
+        BookLoan bookLoan = new BookLoan(appUser,book);
 
         detailsRepository.save(details);
         appUserRepository.save(appUser);

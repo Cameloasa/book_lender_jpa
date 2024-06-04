@@ -2,10 +2,7 @@ package se.lexicon.book_lender_jpa.entity;
 
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.time.LocalDate;
 import java.util.HashSet;
@@ -15,6 +12,7 @@ import java.util.Set;
 @NoArgsConstructor
 @Getter
 @Setter
+@ToString
 
 
 @Entity
@@ -34,22 +32,21 @@ public class BookLoan {
     @Column
     boolean returned;
 
-    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @ManyToOne
     @JoinColumn(name = "borrower_id", nullable = false)
-
     private AppUser borrower;
 
-    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @ManyToOne
     @JoinColumn(name = "book_id" , nullable = false)
-
     private Book book;
 
 
-    public BookLoan(LocalDate dueDate, AppUser borrower, Book book) {
+    public BookLoan( AppUser borrower, Book book) {
         this.loanDate = LocalDate.now();
-        this.dueDate = dueDate;
+        this.dueDate = LocalDate.now().plusDays(book.getMaxLoanDays());
         this.borrower = borrower;
         this.book = book;
+
     }
 
 
