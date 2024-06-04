@@ -49,6 +49,16 @@ public class BookLoan {
 
     }
 
+    public void addBookLoan(BookLoan bookLoan) {
+       book.getBookLoans().add(bookLoan);
+       borrower.getBookLoans().add(bookLoan);
+    }
+
+    public void removeBookLoan(BookLoan bookLoan) {
+        book.getBookLoans().remove(bookLoan);
+        borrower.getBookLoans().remove(bookLoan);
+    }
+
 
 
 

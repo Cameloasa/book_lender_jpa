@@ -38,11 +38,5 @@ public class Book {
         this.maxLoanDays = maxLoanDays;
     }
 
-    public void addBookLoan(BookLoan bookLoan) {
-        bookLoans.add(bookLoan);
-    }
 
-    public void removeBookLoan(BookLoan bookLoan) {
-        bookLoans.remove(bookLoan);
-    }
 }
