@@ -25,7 +25,7 @@ public interface AuthorRepository extends JpaRepository<Author, Integer> {
 
     //Find authors by a book's ID
     @Query("SELECT a FROM Author a JOIN a.writtenBooks b WHERE b.id = :bookId")
-    List<Author> findByBookId(@Param("bookId") Integer bookId);
+    List<Author> findByBook_Id(@Param("bookId") Integer bookId);
 
     //Update an author's name by their ID
     @Modifying
