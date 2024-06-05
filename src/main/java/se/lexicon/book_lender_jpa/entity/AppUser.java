@@ -60,5 +60,16 @@ public class AppUser {
     public AppUser(String userName, Details userDetails) {
         this.userName = userName;
         this.userDetails = userDetails;
+        this.regDate = LocalDate.now();
+    }
+
+    public void addBookLoan(BookLoan bookLoan) {
+        bookLoans.add(bookLoan);
+        bookLoan.setBorrower(this);
+    }
+
+    public void removeBookLoan(BookLoan bookLoan) {
+        bookLoans.remove(bookLoan);
+        bookLoan.setBorrower(null);
     }
 }

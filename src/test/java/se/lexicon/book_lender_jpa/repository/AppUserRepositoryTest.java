@@ -16,6 +16,9 @@ public class AppUserRepositoryTest {
     @Autowired
     AppUserRepository appUserRepository;
 
+    @Autowired
+    DetailsRepository DetailsRepository;
+
     @Test
     @Transactional
     public void testSaveAndFindById() {
@@ -32,4 +35,9 @@ public class AppUserRepositoryTest {
         Assertions.assertTrue(foundAppUser.isPresent());
 
     }
+
+    @Test
+    @Transactional
+    public void testFindByUserName() {}
+
 }
