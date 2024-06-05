@@ -61,7 +61,7 @@ public class AppUserRepositoryTest {
     public void findByUserDetailsEmailIgnoreCase(){
 
         // Arrange
-        Details userDetails = new Details("Bob Johnson", "bob@test.com", LocalDate.of(2002,2,2));
+        Details userDetails = new Details("bob@test.com", "Bob Johnson", LocalDate.of(2002,2,2));
         Details savedDetails = detailsRepository.save(userDetails);
 
         AppUser appUser = new AppUser("bob_johnson", "1234", savedDetails);
@@ -72,7 +72,7 @@ public class AppUserRepositoryTest {
 
         // Assert
         Assertions.assertTrue(foundUser.isPresent());
-        //Assertions.assertEquals("bob_johnson", foundUser.get().getUserName());
+        Assertions.assertEquals("bob_johnson", foundUser.get().getUserName());
     }
 
     @Test
