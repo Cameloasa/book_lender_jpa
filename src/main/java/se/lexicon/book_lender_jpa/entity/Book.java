@@ -32,6 +32,10 @@ public class Book {
    @OneToMany(mappedBy = "book", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private Set<BookLoan> bookLoans = new HashSet<>();
 
+
+   @ManyToMany(mappedBy = "books")
+   private Set<Author> authors = new HashSet<>();
+
     public Book(String isbn, String title, Integer maxLoanDays) {
         this.isbn = isbn;
         this.title = title;
