@@ -33,13 +33,21 @@ public class Book {
     private Set<BookLoan> bookLoans = new HashSet<>();
 
 
-   @ManyToMany(mappedBy = "books")
+   @ManyToMany(mappedBy = "book")
    private Set<Author> authors = new HashSet<>();
 
     public Book(String isbn, String title, Integer maxLoanDays) {
         this.isbn = isbn;
         this.title = title;
         this.maxLoanDays = maxLoanDays;
+    }
+
+    public void addAuthor(Author author) {
+        authors.add(author);
+    }
+
+    public void removeAuthor(Author author) {
+        authors.remove(author);
     }
 
 

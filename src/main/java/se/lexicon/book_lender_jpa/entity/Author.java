@@ -29,11 +29,11 @@ public class Author {
 
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(
-            name = "author_book",
+            name = "authors_books",
             joinColumns = @JoinColumn(name = "author_id"),
             inverseJoinColumns = @JoinColumn(name = "book_id" )
     )
-    private Set<Book> books = new HashSet<Book>();
+    private Set<Book> writtenBooks = new HashSet<Book>();
 
 
     public Author(String firstName, String lastName) {
@@ -42,9 +42,9 @@ public class Author {
     }
 
     public void addBook(Book book) {
-        books.add(book);
+        writtenBooks.add(book);
     }
     public void removeBook(Book book) {
-        books.remove(book);
+        writtenBooks.remove(book);
     }
 }

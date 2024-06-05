@@ -4,14 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
-import se.lexicon.book_lender_jpa.entity.AppUser;
-import se.lexicon.book_lender_jpa.entity.Book;
-import se.lexicon.book_lender_jpa.entity.BookLoan;
-import se.lexicon.book_lender_jpa.entity.Details;
-import se.lexicon.book_lender_jpa.repository.AppUserRepository;
-import se.lexicon.book_lender_jpa.repository.BookLoanRepository;
-import se.lexicon.book_lender_jpa.repository.BookRepository;
-import se.lexicon.book_lender_jpa.repository.DetailsRepository;
+import se.lexicon.book_lender_jpa.entity.*;
+import se.lexicon.book_lender_jpa.repository.*;
 
 import java.time.LocalDate;
 
@@ -30,11 +24,16 @@ public class MyCommandLineRunner implements CommandLineRunner {
     @Autowired
     BookLoanRepository loanRepository;
 
+    @Autowired
+    AuthorRepository authorRepository;
+
     @Override
     public void run(String... args) throws Exception {
 
 
         Book book = new Book("1234Test","Test Book",30);
+
+
 
         Details details = new Details("user@test", "user", LocalDate.of(2000,1,1));
 
@@ -42,11 +41,14 @@ public class MyCommandLineRunner implements CommandLineRunner {
 
         BookLoan bookLoan = new BookLoan(appUser,book);
 
+        Author author = new Author("John","Doe");
+
         detailsRepository.save(details);
         appUserRepository.save(appUser);
         bookRepository.save(book);
-        loanRepository.save(bookLoan);
 
+        loanRepository.save(bookLoan);
+        authorRepository.save(author);
 
     }
 }

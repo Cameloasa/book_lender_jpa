@@ -57,5 +57,8 @@ public class AppUser {
         this.password = password;
     }
 
-
+    public AppUser(String userName, Details userDetails) {
+        this.userName = userName;
+        this.userDetails = userDetails;
+    }
 }
