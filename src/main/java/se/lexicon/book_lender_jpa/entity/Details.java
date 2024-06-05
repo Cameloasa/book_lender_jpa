@@ -33,4 +33,9 @@ public class Details {
         this.name = name;
         this.birthDate = birthDate;
     }
+
+    public Details(String name, String email) {
+        this.name = name;
+        this.email = email;
+    }
 }
