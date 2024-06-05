@@ -33,7 +33,7 @@ public class MyCommandLineRunner implements CommandLineRunner {
 
         Book book = new Book("1234Test","Test Book",30);
 
-
+        Author author = new Author("John","Doe");
 
         Details details = new Details("user@test", "user", LocalDate.of(2000,1,1));
 
@@ -41,14 +41,14 @@ public class MyCommandLineRunner implements CommandLineRunner {
 
         BookLoan bookLoan = new BookLoan(appUser,book);
 
-        Author author = new Author("John","Doe");
+
 
         detailsRepository.save(details);
         appUserRepository.save(appUser);
         bookRepository.save(book);
-
-        loanRepository.save(bookLoan);
         authorRepository.save(author);
+        loanRepository.save(bookLoan);
+
 
     }
 }

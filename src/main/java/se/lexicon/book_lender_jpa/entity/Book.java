@@ -33,7 +33,7 @@ public class Book {
     private Set<BookLoan> bookLoans = new HashSet<>();
 
 
-   @ManyToMany(mappedBy = "book")
+   @ManyToMany(mappedBy = "writtenBooks", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
    private Set<Author> authors = new HashSet<>();
 
     public Book(String isbn, String title, Integer maxLoanDays) {
@@ -43,11 +43,15 @@ public class Book {
     }
 
     public void addAuthor(Author author) {
+
         authors.add(author);
+        author.getWrittenBooks().add(this);
     }
 
     public void removeAuthor(Author author) {
+
         authors.remove(author);
+        author.getWrittenBooks().remove(this);
     }
 
 

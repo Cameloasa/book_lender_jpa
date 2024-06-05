@@ -29,7 +29,7 @@ public class Author {
 
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(
-            name = "authors_books",
+            name = "author_book",
             joinColumns = @JoinColumn(name = "author_id"),
             inverseJoinColumns = @JoinColumn(name = "book_id" )
     )
@@ -43,8 +43,10 @@ public class Author {
 
     public void addBook(Book book) {
         writtenBooks.add(book);
+        book.getAuthors().add(this);
     }
     public void removeBook(Book book) {
         writtenBooks.remove(book);
+        book.getAuthors().remove(this);
     }
 }
