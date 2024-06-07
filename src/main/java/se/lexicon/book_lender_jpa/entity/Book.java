@@ -40,6 +40,12 @@ public class Book {
         this.isbn = isbn;
         this.title = title;
         this.maxLoanDays = maxLoanDays;
+
+    }
+
+    public Book(String title,String author) {
+        this.title = title;
+        this.authors = getAuthors();
     }
 
     public void addAuthor(Author author) {

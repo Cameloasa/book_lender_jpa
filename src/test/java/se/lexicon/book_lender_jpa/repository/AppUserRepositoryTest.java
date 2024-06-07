@@ -22,7 +22,6 @@ public class AppUserRepositoryTest {
     DetailsRepository detailsRepository;
 
     @Test
-
     public void testSaveAndFindById() {
         //1.Arrange
         AppUser appUser = new AppUser("joe_doe", "1234");
@@ -39,7 +38,6 @@ public class AppUserRepositoryTest {
     }
 
     @Test
-
     public void testFindByUserName() {
         // Arrange
         Details userDetails = new Details("Jon Doe", "jondoe@test.com", LocalDate.of(2000,1,1));
